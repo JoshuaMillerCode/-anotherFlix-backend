@@ -31,7 +31,7 @@ const userSchema = new Schema({
   },
   phone: String,
   picture: String,
-  favorites: [{type: Schema.Types.ObjectId, ref: "Favorites"}]
+  favorites: [{type: Schema.Types.ObjectId, ref: "Movie"}]
 },
 {
   timestamps: true

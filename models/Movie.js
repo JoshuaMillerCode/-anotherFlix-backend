@@ -27,4 +27,4 @@ const movieSchema = new Schema({
   timestamps: true
 })
 
-module.exports = model("Video", movieSchema)
+module.exports = model("Movie", movieSchema)

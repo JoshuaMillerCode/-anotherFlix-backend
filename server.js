@@ -8,7 +8,8 @@ app.use(express.json())
 
 // Movies 
 app.use('/api/v1/movies', require('./routes/api/movies.js'))
-
+// User
+app.use('/api/v1/users', require('./routes/api/users.js'))
 
 
 const PORT = process.env.PORT || 8080
