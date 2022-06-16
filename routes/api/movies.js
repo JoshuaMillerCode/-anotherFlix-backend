@@ -14,4 +14,6 @@ router.put('/:id', moviesCtrl.update)
 // DELETE /api/v1/movies/:id
 router.delete('/:id', moviesCtrl.remove)
 
+router.get('/:id', moviesCtrl.show)
+
 module.exports = router

@@ -10,6 +10,15 @@ const index = async (req, res) => {
     }
 }
 
+const show = async (req, res) => {
+  try {
+    const foundMovie = await Movie.findById(req.params.id)
+    res.status(200).json(foundMovie)
+  } catch (err) {
+    res.status(400).json({msg: err.message})
+  }
+}
+
 // Create a movie
 const create = async (req, res) => {
   try {
@@ -41,6 +50,7 @@ const remove = async (req, res) => {
 
 module.exports = {
     index,
+    show,
     create,
     update,
     remove

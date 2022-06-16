@@ -34,7 +34,22 @@ const userSchema = new Schema({
   favorites: [{type: Schema.Types.ObjectId, ref: "Movie"}]
 },
 {
-  timestamps: true
+  timestamps: true,
+  toJSON: {
+        // ret is the JSON'ed User Document
+        transform: function(doc, ret) {
+            // We don't want to return the password back to the client
+            delete ret.password
+            return ret
+        }
+    }
+})
+
+
+userSchema.pre('save', async function(next) {
+  // This will only hash the password for our newly created user
+  this.password = await bcrypt.hash(this.password, saltRounds)
+  return next()
 })
 
 module.exports = model("User", userSchema)
